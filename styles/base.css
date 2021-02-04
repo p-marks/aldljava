@@ -1,0 +1,107 @@
+body {  
+  font-family: Calibri, Verdana, Helvetica;  
+  background-color: white;
+}
+
+.pageTitle {  
+  color: #330099;  
+  font-family: Calibri;  
+  font-size: 27px;  
+  font-weight: bold;  
+  font-style: italic;  
+  text-align: center;  text-shadow: 6px 3px 1px silver;  
+  line-height: 0px;
+}
+
+.pageMenu {  
+  color: #cc0000;  
+  font-family: Calibri, Verdana, Helvetica;  
+  font-size: 18px;  
+  font-weight: bold;  
+  font-style: italic;  
+  line-height: 0px;  
+  padding-right: 20px;  
+  padding-left: 20px;  
+  text-decoration: none;
+}
+
+.menu {  
+  text-align: center;
+}
+
+.footer {  
+  font-size: 11px;  
+  text-align: center;  
+  color: #000099;
+}
+
+.articleTitle {  
+  font-size: 24px;  
+  font-weight: bold;  
+  color: #cc0000;  
+  padding-left: 5%;  
+  padding-right: 5%;
+}
+
+p {  
+  font-size: 15px;  
+  padding-right: 3%;  
+  padding-left: 3%;
+}
+
+.pageMenu:hover {  
+  color: #ff9900;
+}
+
+h1 {  
+  font-family: Calibri, Verdana, Helvetica;  
+  padding-right: 3%;  
+  padding-left: 3%;  
+  color: #990000;
+}
+
+h2 {  
+  font-family: Calibri, Verdana, Helvetica;  
+  padding-right: 3%;  
+  padding-left: 3%;  
+  color: #990000;
+}
+
+h3 {  
+  font-family: Calibri, Verdana, Helvetica;  
+  padding-right: 3%;  
+  padding-left: 4%;  
+  color: #990000;
+}
+
+table {  
+  padding-top: 1%;  
+  padding-right: 3%;  
+  padding-bottom: 1%;  
+  padding-left: 3%;
+}
+
+th {
+  font-size: 15px;  
+  font-weight: bold;  
+  color: #990000;
+  padding-left: 10px;  
+  padding-right: 10px;  
+}
+
+td {
+  font-size: 15px;  
+  font-weight: normal;  
+  padding-left: 10px;  
+  padding-right: 10px;  
+}
+
+a {
+  color: #cc0000;  
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ff9900;  
+}
+ 

@@ -1,0 +1,45 @@
+p {
+	font-family: Verdana, Arial;
+	font-size: 14;
+	color: Yellow;
+	text-decoration: none;
+	font-weight: bold
+}
+.czerwony {
+	color: Red
+}
+.mp3tab {
+	font-family: Verdana, Arial;
+	font-size: 12;
+	color: Yellow;
+	text-decoration: none;
+	font-weight: normal
+}
+.mp3link {
+	color: Red
+}
+.advrtlink {
+	color: Orange
+}
+li {
+	font-family: Verdana, Arial;
+	font-size: 14;
+	color: yellow;
+	text-decoration: none;
+	font-style : normal;
+}
+ul {
+	font-family: Verdana, Arial;
+	font-size: 14;
+	color: yellow;
+	text-decoration: ;
+	font-weight: bold;
+	font-style : italic;
+}
+.cvtab {
+	font-family: Verdana, Arial;
+	font-size: 14;
+	color: Yellow;
+	text-decoration: none;
+	font-weight: bold;
+}

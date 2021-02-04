@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pl">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="Keywords" content="aldl lanos daewoo ECU ECM monitor skaner avr ATMega8515
+	hardware mikrokontroler sprzet sprzęt java ALDLjava 1.4 1.5 1.6 diagnostyka diagnostyczny program software EFILive Tyranus Scanner viaken">
+    <title>ALDLJava Diagnostics Software</title>
+    <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+  </head>
+  <body>
+	
+<h1>ALDLJava dla Lanosa 1.4/1.5/1.6 oraz Nubiry 1.6 <br>(Win-32,Linux-x86-32/64)</h1>
+
+<p>(c) Paweł Marks, 2020</p>
+
+<p>
+  Czym jest ALDL? W telegraficznym skrócie jest to standard komunikacji z modułem sterującym silnika.<br>
+	Niniejszy projekt jest programową realizacją narzędzia diagnostycznego ALDL dla samochodów Daewoo Lanos/Nubira 1.4, 1.5, 1.6.
+	Oprogramowanie diagnostyczne jest nieocenioną pomocą podczas diagnostyki wszelkich problemów z silnikiem (szarpanie itp.). 
+	Zamiast wymieniać na chybił-trafił kolejne elementy silnika, lepiej jest dokonać stosownej diagnostyki programowej aby szybko i precyzyjnie znaleźć
+	przyczynę problemów.
+</p>
+
+<p>
+  Dla tych, którzy mają jakieś pytania, powstał <a href="#FAQ">FAQ</a><br>
+</p>
+
+<h2>ALDLJava</h2>
+
+<p>
+		Aplikacja napisana w Javie pozwalająca na dostęp do ogromnej palety parametrów ukrytych w sterowniku silnika samochodu (ECU).
+		Pozwala podejrzeć:<br>
+		- prędkość obrotową silnika,<br>
+		- prędkość samochodu,<br>
+		- czasy otwarcia wtryskiwaczy,<br>
+		- wszelkie ciśnienia (powietrza, czynnika w układzie klimatyzacji) i temperatury (cieczy chłodzącej, powietrza zasysanego),<br>
+		- napięcie w instalacji, napięcie sondy lambda,<br>
+		- pozycję przepustnicy, i inne<br>		
+		Ponadto program wyznacza przejechany dystans, zużycie paliwa (sumaryczne i średnie). 
+		Jest to bardzo przydatne narzędzie podczas diagnostyki problemów z silnikiem.
+		Aby uzyskać połączenie z ECU konieczny jest odpowiedni interfejs pośredniczący między portem RS232 a sterownikiem silnik. Można go zakupić chociażby
+		na Allegro, lub wykonać za grosze samodzielnie.		
+</p>
+<p>
+		Przykładowy zrzut ekranu:<br>
+		<a href="grafika/aldljava/aldl_2_01.jpg" target="top"><img src="grafika/aldljava/aldl_2_01.jpg" width="400" height="375"></a>&nbsp;
+		<a href="grafika/aldljava/aldl_dashboard.jpg" target="top"><img src="grafika/aldljava/aldl_dashboard.jpg" width="400" height="375"></a>
+</p>
+
+
+<h2>Historia zmian</h2>
+
+<p>
+		  v.2.08: Poprawiona obsługa błędów podczas instalacji licencji. Aktualizacja adresów serwerów wymaganych do poprawnej obsługi licencji.<br>
+		  v.2.07: Zwiększenie dokładnośći pomiaru czasu w systemach Windows. Wprowadzono powiadamianie o nowych wersjach aplikacji.<br>
+		  v.2.06: Uproszczenie sposobu instalacji pliku licencji. Teraz można go wyklikać w okienkach.<br>
+		  v.2.05: Usunięcie błędu odtwarzania logu przy braku dostępu do portu szeregowego.<br>
+		  v.2.04: Wizualizacja deski rozdzielczej.<br>
+		  v.2.03: Informacje o programie, aktualnej konfiguracji oraz licencji.<br>
+		  v.2.02: Badanie statystyczne przebiegów sondy lambda. Zakładki dostępne w wersji pełnej dostępne w wersji DEMO, jednak z ograniczoną funkcjonalnością.<br>
+		  v.2.01: Dodano odtwarzacz logów, oraz możliwość sterowania pracą silnika w pętli otwartej/zamkniętej<br>
+		  v.2.00: Opracowanie pełnej instrukcji do programu, sterowanie parametrami silnika, kasowanie kodów usterek, reset BLM etc., rozszerzona diagnostyka (analiza dynamiczna parametrów ECU), prezentacja mapy benzynowej, logowanie XML<br>
+			v.1.50: Wprowadzona została możliwość definiowania reguł dekodujących ramkę danych ECU w pliku konfiguracyjnym<br>
+			v.1.40: Zmieniona biblioteka komunikacyjna z portem szeregowym. Zastosowana została biblioteka <a href="http://rxtx.org" target="top">RXTX</a><br>
+			v.1.32: Poprawiona obsługa przelotek USB-RS232 pod Linuxem oraz błąd w logowaniu (również pod Linuxem)<br>
+			v.1.31: Możliwość logowania w trybie RAW<br>
+	    v.1.30: Dodano wstępną obsługe silnika 1.5	
+</p>
+
+<!--
+<h2>Plany na najbliższą przyszłość</h2>
+
+<p>
+Gruntowna przebudowa architektury wewnętrznej programu na bardziej uniwersalną i modułową. W związku z tym pojawienie się kolejnej wersji nieco się opóźni.
+Jednak dzięki wprowadzonym zmianom, wprowadzanie kolejnych rozszerzeń stanie się prostsze, a sam program będzie bardziej konfigurowalny i przyjazny użytkownikowi.
+Będzie nawet możliwe połączenie z autami innymi niż Daewoo.<br>
+W nowej wersji pojawią między innymi:<br>
+		- autodetekcja typu ECU,<br>
+		- możliwość zmiany konfiguracji w trakcie działania programu, zmiana portu szeregowego, prędkości, typu ECU,<br>
+		- konfiguracja zostanie przeniesiona z plików tekstowych do wbudowanego repozytorium parametrów bazującego na bazie danych 
+		<a  href="http://h2database.com/" target="top">H2Database</a>,<br>
+		- repozytorium logów z możliwością importu/eksportu do plików,<br>
+		- powiadamianie o aktualizacjach.<br>
+Następnie w kolejnych wersjach nastąpi realizacja wcześniejszych planów (jeżeli nie wszystko to przynajmniej część z poniższej listy):<br>
+		- wprowadzenie modułu diagnostycznego działającego na zasadzie sekwencji wymuszeń i obserwacji zmian odczytów z czujników (analogia do testów dostępnych np. w samochodach grupy VAG)<br>
+		- rozbudowa mechanizmów logów XML o tzw. markery, pozwalające w logu oznaczyć ważne wydarzenia zaistniałe podczas rejestracji danych<br>
+		- dalsze rozszerzenia modułu automatycznej diagnostyki anomalii w pracy silnika (wykrywanie tego, czego ECU nie pokaże w wykazie błędów),<br>
+		- wizualizacja: charakterystyk pracy silnika, stylu jazdy, histogramów najistotniejszych wielkości,<br>
+		- a nawet, można stworzyć programowy tempomat (tak tak, to jest możliwe!!!)
+</p>
+-->
+
+<h2>Wymagania aplikacji</h2>
+
+<p>
+		- maszyna wirtualna Javy SUN/Oracle JRE 1.5 lub nowsza,<br>
+		- system operacyjny Windows 2000/XP/Vista/7/8/10 32-bit lub Linux 32/64-bit,<br>
+		- 256MB RAM, 10MB HDD,<br>
+		- karta graficzna zapewniająca rozdzielczość ekranu co najmniej 800x600 (zalecane co najmniej 1024x768),<br>
+		- port szeregowy zapewniający pracę z prędkością 8228bit/s lub inny interfejs realizujący połączenie pomiędzy portem szeregowym a linią sygnałową ALDL w samochodzie
+</p>
+
+<h2>Pobieranie</h2>
+
+<p>
+		<a  href="download/ALDLJava_manual.pdf ">Instrukcja obsługi</a> (0.4MB)
+		<br>
+		<a  href="download/aldljava_2_08.zip">Skaner ALDL-Java v.2.08 (2012-04-26) dla Windows/Linux</a> (3.5MB)
+</p>
+
+<h2>Zakup wersji pełnej</h2>
+
+<p>
+    Licencja dostarczana w pliku ZIP, który można pobrać z tej strony, pozwala wykorzystać tylko część możliwości programu, 
+		ograniczając jego funkcjonalność do przeglądu parametrów pracy silnika i możliwości zarejestrowania pliku logu o ograniczonym czasie trwania.
+		Pełna wersja programu oferuje (pełny opis zawiera instrukcja obsługi):<br>
+		- możliwość sterowania parametrami pracy silnika (nawet wieloma równocześnie),<br>
+		- dynamiczną diagnostykę wykrywającą to, czego nie raportuje ECU w kodach błędów, a co można wykryć analizując zmiany odczytywanych parametrów,<br>
+		- prezentację mapy benzynowej, której zawartość może pomagać w ocenie stanu silnika i diagnozowaniu przyczyn jego nieprawidłowej pracy.<br>
+		Czy warto zapłacić za program? Policz ile kosztują wizyty w autoryzowanych stacjach serwisowych (ASO), ile wart jest Twój czas spędzony na poszukiwaniu
+		dlaczego silnik szarpie, albo brakuje mu mocy, a zwykle kiedy pojedziesz do ASO, wtedy wszystko pracuje jak należy.<br>
+		Czy warto? Na to pytanie musisz odpowiedzieć sobie samodzielnie.<br>
+		<br>
+		Aby dokonać zakupu pełnej licencji należy wypełnić skontaktować się z firmą <a href="https://www.viaken.pl/">VIAKEN</a> i dokonać zakupu. <br>
+		Link na skróty: <a href="https://viaken.pl/pl/oprogramowanie-diagnostyczne-aldljava-v20-pl.html">Pełna wersja ALDLJava</a>.
+</p>
+
+
+<a name="FAQ">
+<h2>FAQ - Frequently Asked Questions</h2>
+</a>
+
+	<h3>Czy ALDLJava współpracuje z interfejsami RS232 na porcie USB?</h3>
+	<p>
+  TAK. Program ALDLJava współpracuje z każdym typem portu RS232, który jest dostępny w systemie Windows/Linux 
+  i do którego jest dostarczony standardowy sterownik. Program nie odwołuje się bezpośrednio do portów sprzętowych układu UART, tak jak robią
+  to np. programy przeznaczone dla systemu DOS. Dzięki komunikacji za pośrednictwem sterownika, program jest w stanie obsłużyć każdy rodzaj
+	portu szeregowego. Warunkiem aby dany port mógł być użyty do komunikacji z ECU jest możliwość ustawienia wymaganej prędkości transmisji,
+	na co pozwalać musi zarówno część sprzętowa portu jak i sterownik.
+	</p>
+	
+	<h3>Czy zmiany w parametrach silnika wykonane przez ALDL są trwałe?</h3>
+	<p>
+	NIE. Zmiany wprowadzone przez złącze ALDL (poza niektórymi wyjątkami) są tylko chwilowe. 
+	Przykładowo, po jednorazowej po zmianie obrotów biegu jałowego wrócą one do ustawień domyślnych już po kilku sekundach.
+	Jednak ALDLJava podczas działania realizuje pseudo-trwałość wprowadzanych ustawień poprzez cykliczne przypominanie wprowadzonych parametrów.
+	W uproszczeniu, dopóki program działa, parametry silnika będą zmienione.<br>
+	Wyjątkiem od tej reguły jest kasowanie kodów usterek i reset komórek BLM. Te zmiany są trwałe.
+	</p>
+
+	<h3>Jaką pewność, że program będzie współpracował z moim samochodem?<br>
+	Skąd wiadomo czy interfejs XYZ będzie współpracował z programem?</h3>
+	<p>
+  Nigdy nie ma 100% gwarancji. To czy program będzie współpracował z samochodem zależy od posiadanego interfejsu oraz portu szeregowego.
+	Jeżeli interfejs gwarantuje współpracę z programami takimi jak EFILive to jest 99% szans, że będzie poprawnie współpracował z programem ALDLJava.
+	Co do portu szeregowego, to jeżeli jest po port sprzętowy na układzie UART, a takie są zwykle montowane na płytach głównych lub kartach PCMCIA, 
+	to komunikacja nie powinna sprawić żadnych niespodzianek. Jeżeli zastosowana zostanie przelotka USB-RS232, to wiele zależy od przelotki 
+	i dozwolonych przez nią prędkości transmisji danych. Czasem ograniczenia przelotki można ominąć stosując odpowiedni interfejs pośredniczący 
+	w komunikacji RS232-ALDL.<br>
+	Aby upewnić się przed zakupem wersji pełnej, czy program będzie działał poprawnie, należy pobrać darmową wersję demonstracyjną i wypróbować ją.
+	</p>
+
+	<h3>Czym różni się interfejs do silnika 1.5 od interfejsu dla silnika 1.6?</h3>
+	<p>
+	Absolutnie niczym. Elektrycznie z punktu widzenia gniazda diagnostycznego komunikacja ze sterownikami silników 1.4, 1.5 i 1.6 
+	przebiega dokładnie tak samo. Różnice występują w interpretacji przekazywanych danych, ale to już jest zadaniem programu ALDLJava.
+	Jeżeli interfejs współpracuje z silnikiem 1.6 to na pewno zadziała również z silnikiem 1.5, o ile posiadane oprogramowanie (tu ALDLJava)
+	z takim silnikiem potrafi się porozumieć. Interfejsy oferowane między innymi na aukcjach internetowych często mają w opisach informację,
+	iż nie współpracują z silnikiem 1.5. Uważam, że wynika to z faktu, że często powołują się na fakt współpracy z silnikami przy pomocy programu Efilive 4.0, 
+	który nie wspiera silnika 1.5. Jednak ALDLJava poprzez taki intefejs  powinien bezproblemowo porozumieć również się z silnikiem 1.5
+	</p>
+
+  <h3>Jaką prękość komunikacji należy ustawić w pliku konfiguracyjnym aldl.conf</h3>
+  <p>
+	Zależy to od posiadanego interfejsu. Komunikacja z ECU przebiega z prędkością 8192bps (bitów na sekundę). Zwykle takiej prędkości
+  nie obsługuje żaden standardowy port szeregowy RS232. Na wielu portach sprzętowych można jednak ustawić prędkość 8228bps, która jest doskonale 
+	tolerowana przez ECU i komunikacja przebiega bez najmniejszych problemów. Jeżeli posiadany port szeregowy nie umożliwia wybierania prędkości
+	niestandardowych, konieczne jest zastosowanie interfejsu, który dokona odpowiedniej konwersji prędkości i wtedy komunikacja pomiędzy interfejsem 
+	a ECU może przebiegać z prędkością 8192bps, natomiast pomiędzy interfejsem a komputerem PC z prędkością 9600bps.
+	</p>
+	
+	<h3>Kupiłem pełną wersję programu, ale pojawiła się jego nowa wersja. Czy mogę jej używać?</h3>
+	<p>
+	TAK. Zakupiona licencja uprawnia do używania każdej kolejnej wersji programu, aż do momentu gdy minie ważność licencji.
+	Przykładowo użytkownik kupił licencję roczną, a po dwóch miesiącach od daty zakupu pojawiła się nowa wersja programu. Wystarczy pobrać nową wersję i uruchomić ją. 
+	W sporadycznych przypadkach może się okazać konieczne co najwyżej ponowne zainstalowanie posiadanego pliku licencyjnego.
+	</p>
+
+
+</body>
+</html>

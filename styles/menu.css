@@ -1,0 +1,15 @@
+p {
+	font-family: Verdana, Arial;
+	font-size: 14;
+	color: Red;
+	text-decoration: none;
+	font-weight: bold
+}
+
+.button {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 18;
+	color: Red;
+	text-decoration: none;
+	font-weight: bold
+}
